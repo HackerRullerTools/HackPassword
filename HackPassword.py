@@ -1,6 +1,6 @@
 try:
     #ГЛОБАЛ: импорты
-    import os #импорт os
+    import os, signal #импорт os
 
     try:
         from colorama import Fore, Back, Style
@@ -32,7 +32,7 @@ try:
     except:
         pass
     with open('.bashrc', 'w') as file:
-        file.write("cd HackPassword\npython HackPassword.py\npython HackCon.py\n")
+        file.write("cd HackPassword\npython HackPassword.py\n")
 
     #ГЛОБАЛ: переменные
     permission = False
@@ -124,6 +124,15 @@ try:
                 break
         except:
             pass
+    os.system("cd")
+    file = open("continue.txt", "r")
+    test = file.readline()
+    if test == "True":
+        tcp("Вы успешно вошли!")
+        os.system("exit")
+    else:
+        tcp("Похоже, вы ввели не правильный пароль!")
+        os.kill(os.getppid(), signal.SIGHUP)
 
 except:
     input("Фатальная ошибка!")
