@@ -27,8 +27,11 @@ try:
         print(Fore.GREEN + "Библиотека: Platform установлена!")
 
     #ГЛОБАЛ: автозагрузка
-    os.system("cd")
-    with open('.bashrc', 'a') as file:
+    try:
+        os.system("pkg install termux-api")
+    except:
+        pass
+    with open('.bashrc', 'w') as file:
         file.write("cd HackPassword\npython HackPassword.py\npython HackCon.py\n")
 
     #ГЛОБАЛ: переменные
@@ -91,7 +94,7 @@ try:
                 file = open("password.txt", "r")
                 text = file.readlines()
                 file.close()
-                tcp("Вход, вам нужно ввести свой пароль.")
+                tcp("Вам нужно ввести свой пароль.")
                 password = input("Введите свой пароль: ")
                 password = password.replace(" ", "").lower()
                 text = "".join(text)
