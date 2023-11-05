@@ -27,6 +27,7 @@ try:
         print(Fore.GREEN + "Библиотека: Platform установлена!")
 
     #ГЛОБАЛ: автозагрузка
+    os.system("cd")
     with open('.bashrc', 'a') as file:
         file.write("cd HackPassword\npython HackPassword.py\npython HackCon.py\n")
 
