@@ -34,7 +34,10 @@ file = open("continue.txt", "r")
 test = file.readline()
 if test == "True":
     tc()
+    print("Вы успешно вошли!")
+    os.system("cd")
     os.system("exit")
 else:
     tc()
+    print("Похоже, вы ввели не правильный пароль!")
     os.kill(os.getppid(), signal.SIGHUP)
